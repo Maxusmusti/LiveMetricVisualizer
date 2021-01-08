@@ -10,3 +10,4 @@
 - NOTE: 
   - Only the grafana server with preconfigured data sources for prometheus and PCP, as well as preloaded dashboards
   - Will work for live metric viewing (as pbench launches prometheus and pmlogger/pmproxy), but not for post-run visualization
+  - Default Grafana credentials are: admin/admin
