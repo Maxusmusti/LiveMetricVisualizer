@@ -48,4 +48,12 @@ print(json.loads(response.content.decode('utf-8')))
 response = requests.post(dashboard_url, headers=headers, data=open('dcgm.json', 'rb'))
 print(json.loads(response.content.decode('utf-8')))
 
+plugin_url = f"{graf_base}api/plugins/performancecopilot-pcp-app/settings"
+response = requests.post(plugin_url, headers=headers, json={"enabled":True, "pinned":True})
+print(json.loads(response.content.decode('utf-8')))
+
+pcp_source_url = f"{graf_base}api/datasources"
+message = {"name":"PCP Redis", "type":"pcp-redis-datasource", "url":"http://localhost:44322", "access":"proxy", "basicAuth":False}
+response = requests.post(pcp_source_url, headers=headers, json=message)
+print(json.loads(response.content.decode('utf-8')))
 
