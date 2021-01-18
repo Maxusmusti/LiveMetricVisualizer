@@ -57,3 +57,6 @@ message = {"name":"PCP Redis", "type":"pcp-redis-datasource", "url":"http://loca
 response = requests.post(pcp_source_url, headers=headers, json=message)
 print(json.loads(response.content.decode('utf-8')))
 
+message = {"name":"PCP Vector", "type":"pcp-vector-datasource", "url":"http://localhost:44322", "access":"proxy", "basicAuth":False}
+response = requests.post(pcp_source_url, headers=headers, json=message)
+print(json.loads(response.content.decode('utf-8')))
