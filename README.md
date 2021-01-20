@@ -5,7 +5,7 @@
 
 - Directions:
   -   `podman pull pbench/live-metric-visualizer`
-  -   `podman run -p 3000:3000 pbench/live-metric-visualizer`
+  -   `podman run --network host pbench/live-metric-visualizer`
 
 - NOTE: 
   - Only the grafana server with preconfigured data sources for prometheus and PCP, as well as preloaded dashboards
