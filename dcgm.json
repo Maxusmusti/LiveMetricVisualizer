@@ -131,6 +131,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
+      "interval": "3",
       "title": "GPU Temperature",
       "tooltip": {
         "shared": true,
@@ -230,6 +231,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
+      "interval": "3",
       "title": "GPU Avg. Temp",
       "type": "gauge"
     },
@@ -290,6 +292,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
+      "interval": "3",
       "title": "GPU Power Usage",
       "tooltip": {
         "shared": true,
@@ -410,6 +413,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
+      "interval": "3",
       "title": "GPU Power Total",
       "type": "gauge"
     },
@@ -477,6 +481,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
+      "interval": "3",
       "title": "GPU SM Clocks",
       "tooltip": {
         "shared": true,
@@ -572,6 +577,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
+      "interval": "3",
       "title": "GPU Utilization",
       "tooltip": {
         "shared": true,
@@ -665,6 +671,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
+      "interval": "3",
       "title": "GPU Framebuffer Mem Used",
       "tooltip": {
         "shared": true,
@@ -759,6 +766,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
+      "interval": "3",
       "title": "GPU Framebuffer Mem Free",
       "tooltip": {
         "shared": true,
