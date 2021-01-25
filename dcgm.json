@@ -439,7 +439,6 @@
       },
       "hiddenSeries": false,
       "id": 329,
-      "interval": "",
       "legend": {
         "alignAsTable": true,
         "avg": true,

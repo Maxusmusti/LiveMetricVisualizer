@@ -79,7 +79,8 @@
       "type": "row"
     },
     {
-      "cacheTimeout": null,
+     "cacheTimeout": null,
+     "interval": "3",
       "datasource": "${DS_PROMETHEUS}",
       "description": "Busy state of all CPU cores together",
       "gridPos": {
@@ -152,7 +153,8 @@
       "type": "gauge"
     },
     {
-      "cacheTimeout": null,
+     "cacheTimeout": null,
+     "interval": "3",
       "datasource": "${DS_PROMETHEUS}",
       "description": "Busy state of all CPU cores together (5 min average)",
       "gridPos": {
@@ -225,7 +227,8 @@
       "type": "gauge"
     },
     {
-      "cacheTimeout": null,
+     "cacheTimeout": null,
+     "interval": "3",
       "datasource": "${DS_PROMETHEUS}",
       "description": "Busy state of all CPU cores together (15 min average)",
       "gridPos": {
@@ -297,7 +300,8 @@
       "type": "gauge"
     },
     {
-      "cacheTimeout": null,
+     "cacheTimeout": null,
+     "interval": "3",
       "datasource": "${DS_PROMETHEUS}",
       "description": "Non available RAM memory",
       "gridPos": {
@@ -372,7 +376,8 @@
       "type": "gauge"
     },
     {
-      "cacheTimeout": null,
+     "cacheTimeout": null,
+     "interval": "3",
       "datasource": "${DS_PROMETHEUS}",
       "description": "Used Swap",
       "gridPos": {
@@ -443,7 +448,8 @@
       "type": "gauge"
     },
     {
-      "cacheTimeout": null,
+     "cacheTimeout": null,
+     "interval": "3",
       "datasource": "${DS_PROMETHEUS}",
       "description": "Used Root FS",
       "gridPos": {

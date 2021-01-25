@@ -443,7 +443,6 @@
       },
       "hiddenSeries": false,
       "id": 329,
-      "interval": "",
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -820,7 +819,8 @@
       "id": 261,
       "panels": [
         {
-          "cacheTimeout": null,
+         "cacheTimeout": null,
+         "interval": "3",
           "datasource": "${DS_PROMETHEUS}",
           "description": "Busy state of all CPU cores together",
           "fieldConfig": {
@@ -882,7 +882,7 @@
             "showThresholdLabels": false,
             "showThresholdMarkers": true
           },
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "targets": [
             {
               "expr": "(((count(count(node_cpu_seconds_total{instance=\"$node\",job=\"$job\"}) by (cpu))) - avg(sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=\"$node\",job=\"$job\"}[5m])))) * 100) / count(count(node_cpu_seconds_total{instance=\"$node\",job=\"$job\"}) by (cpu))",
@@ -897,7 +897,8 @@
           "type": "gauge"
         },
         {
-          "cacheTimeout": null,
+         "cacheTimeout": null,
+         "interval": "3",
           "datasource": "${DS_PROMETHEUS}",
           "description": "Busy state of all CPU cores together (5 min average)",
           "fieldConfig": {
@@ -959,7 +960,7 @@
             "showThresholdLabels": false,
             "showThresholdMarkers": true
           },
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "targets": [
             {
               "expr": "avg(node_load5{instance=\"$node\",job=\"$job\"}) /  count(count(node_cpu_seconds_total{instance=\"$node\",job=\"$job\"}) by (cpu)) * 100",
@@ -974,7 +975,8 @@
           "type": "gauge"
         },
         {
-          "cacheTimeout": null,
+         "cacheTimeout": null,
+         "interval": "3",
           "datasource": "${DS_PROMETHEUS}",
           "description": "Busy state of all CPU cores together (15 min average)",
           "fieldConfig": {
@@ -1036,7 +1038,7 @@
             "showThresholdLabels": false,
             "showThresholdMarkers": true
           },
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "targets": [
             {
               "expr": "avg(node_load15{instance=\"$node\",job=\"$job\"}) /  count(count(node_cpu_seconds_total{instance=\"$node\",job=\"$job\"}) by (cpu)) * 100",
@@ -1050,7 +1052,8 @@
           "type": "gauge"
         },
         {
-          "cacheTimeout": null,
+         "cacheTimeout": null,
+         "interval": "3",
           "datasource": "${DS_PROMETHEUS}",
           "description": "Non available RAM memory",
           "fieldConfig": {
@@ -1106,7 +1109,7 @@
             "showThresholdLabels": false,
             "showThresholdMarkers": true
           },
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "targets": [
             {
               "expr": "((node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"} - node_memory_MemFree_bytes{instance=\"$node\",job=\"$job\"}) / (node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"} )) * 100",
@@ -1129,7 +1132,8 @@
           "type": "gauge"
         },
         {
-          "cacheTimeout": null,
+         "cacheTimeout": null,
+         "interval": "3",
           "datasource": "${DS_PROMETHEUS}",
           "description": "Used Swap",
           "fieldConfig": {
@@ -1191,7 +1195,7 @@
             "showThresholdLabels": false,
             "showThresholdMarkers": true
           },
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "targets": [
             {
               "expr": "((node_memory_SwapTotal_bytes{instance=\"$node\",job=\"$job\"} - node_memory_SwapFree_bytes{instance=\"$node\",job=\"$job\"}) / (node_memory_SwapTotal_bytes{instance=\"$node\",job=\"$job\"} )) * 100",
@@ -1204,7 +1208,8 @@
           "type": "gauge"
         },
         {
-          "cacheTimeout": null,
+         "cacheTimeout": null,
+         "interval": "3",
           "datasource": "${DS_PROMETHEUS}",
           "description": "Used Root FS",
           "fieldConfig": {
@@ -1266,7 +1271,7 @@
             "showThresholdLabels": false,
             "showThresholdMarkers": true
           },
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "targets": [
             {
               "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$node\",job=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"} * 100) / node_filesystem_size_bytes{instance=\"$node\",job=\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"})",
@@ -1311,7 +1316,6 @@
             "y": 34
           },
           "id": 14,
-          "interval": null,
           "links": [],
           "mappingType": 1,
           "mappingTypes": [
@@ -1402,7 +1406,6 @@
             "y": 34
           },
           "id": 75,
-          "interval": null,
           "links": [],
           "mappingType": 1,
           "mappingTypes": [
@@ -1491,7 +1494,6 @@
             "y": 34
           },
           "id": 18,
-          "interval": null,
           "links": [],
           "mappingType": 1,
           "mappingTypes": [
@@ -1580,7 +1582,6 @@
             "y": 36
           },
           "id": 23,
-          "interval": null,
           "links": [],
           "mappingType": 1,
           "mappingTypes": [
@@ -1672,7 +1673,6 @@
           },
           "hideTimeOverride": true,
           "id": 15,
-          "interval": null,
           "links": [],
           "mappingType": 1,
           "mappingTypes": [
@@ -1766,6 +1766,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "decimals": 2,
           "description": "Basic CPU info",
+          "interval": "3",
           "fieldConfig": {
             "defaults": {
               "custom": {},
@@ -1803,7 +1804,7 @@
           "maxPerRow": 6,
           "nullPointMode": "null",
           "percentage": true,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1988,7 +1989,7 @@
           "maxPerRow": 6,
           "nullPointMode": "null",
           "percentage": false,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2064,8 +2065,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Basic",
           "tooltip": {
             "shared": true,
@@ -2171,7 +2172,7 @@
           "links": [],
           "nullPointMode": "null",
           "percentage": false,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2205,8 +2206,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic Basic",
           "tooltip": {
             "shared": true,
@@ -2289,7 +2290,7 @@
           "maxPerRow": 6,
           "nullPointMode": "null",
           "percentage": false,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2310,8 +2311,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk Space Used Basic",
           "tooltip": {
             "shared": true,
@@ -2421,7 +2422,7 @@
           "maxPerRow": 6,
           "nullPointMode": "null",
           "percentage": true,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2508,8 +2509,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "CPU",
           "tooltip": {
             "shared": true,
@@ -2612,7 +2613,7 @@
           "maxPerRow": 6,
           "nullPointMode": "null",
           "percentage": false,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2710,8 +2711,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Stack",
           "tooltip": {
             "shared": true,
@@ -2793,7 +2794,7 @@
           "links": [],
           "nullPointMode": "null",
           "percentage": false,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2827,8 +2828,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic",
           "tooltip": {
             "shared": true,
@@ -2911,7 +2912,7 @@
           "maxPerRow": 6,
           "nullPointMode": "null",
           "percentage": false,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2932,8 +2933,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk Space Used",
           "tooltip": {
             "shared": true,
@@ -3013,7 +3014,7 @@
           "maxPerRow": 6,
           "nullPointMode": "null",
           "percentage": false,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -3129,8 +3130,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk IOps",
           "tooltip": {
             "shared": false,
@@ -3214,7 +3215,7 @@
           "maxPerRow": 6,
           "nullPointMode": "null",
           "percentage": false,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -3270,8 +3271,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "I/O Usage Read / Write",
           "tooltip": {
             "shared": true,
@@ -3355,7 +3356,7 @@
           "maxPerRow": 6,
           "nullPointMode": "null",
           "percentage": false,
-          "pluginVersion": "7.1.2",
+          "pluginVersion": "6.7.3",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -3377,8 +3378,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "I/O Usage Times",
           "tooltip": {
             "shared": true,
@@ -3516,8 +3517,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Active / Inactive",
           "tooltip": {
             "shared": true,
@@ -3648,8 +3649,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Commited",
           "tooltip": {
             "shared": true,
@@ -3791,8 +3792,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Active / Inactive Detail",
           "tooltip": {
             "shared": true,
@@ -3924,8 +3925,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Writeback and Dirty",
           "tooltip": {
             "shared": true,
@@ -4074,8 +4075,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Shared and Mapped",
           "tooltip": {
             "shared": true,
@@ -4199,8 +4200,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Slab",
           "tooltip": {
             "shared": true,
@@ -4334,8 +4335,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Vmalloc",
           "tooltip": {
             "shared": true,
@@ -4449,8 +4450,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Bounce",
           "tooltip": {
             "shared": true,
@@ -4578,8 +4579,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Anonymous",
           "tooltip": {
             "shared": true,
@@ -4702,8 +4703,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Kernel / CPU",
           "tooltip": {
             "shared": true,
@@ -4834,8 +4835,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory HugePages Counter",
           "tooltip": {
             "shared": true,
@@ -4958,8 +4959,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory HugePages Size",
           "tooltip": {
             "shared": true,
@@ -5094,8 +5095,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory DirectMap",
           "tooltip": {
             "shared": true,
@@ -5217,8 +5218,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Unevictable and MLocked",
           "tooltip": {
             "shared": true,
@@ -5334,8 +5335,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory NFS",
           "tooltip": {
             "shared": true,
@@ -5458,8 +5459,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Pages In / Out",
           "tooltip": {
             "shared": true,
@@ -5566,8 +5567,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Pages Swap In / Out",
           "tooltip": {
             "shared": true,
@@ -5703,8 +5704,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Memory Page Faults",
           "tooltip": {
             "shared": true,
@@ -5821,8 +5822,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "OOM Killer",
           "tooltip": {
             "shared": true,
@@ -5958,8 +5959,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Time Syncronized Drift",
           "tooltip": {
             "shared": true,
@@ -6053,8 +6054,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Time PLL Adjust",
           "tooltip": {
             "shared": true,
@@ -6162,8 +6163,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Time Syncronized Status",
           "tooltip": {
             "shared": true,
@@ -6266,8 +6267,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Time Misc",
           "tooltip": {
             "shared": true,
@@ -6383,8 +6384,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Processes Status",
           "tooltip": {
             "shared": true,
@@ -6478,8 +6479,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Processes State",
           "tooltip": {
             "shared": true,
@@ -6573,8 +6574,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Processes  Forks",
           "tooltip": {
             "shared": true,
@@ -6699,8 +6700,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Processes Memory",
           "tooltip": {
             "shared": true,
@@ -6809,8 +6810,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "PIDs Number and Limit",
           "tooltip": {
             "shared": true,
@@ -6918,8 +6919,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Process schdeule stats Running / Waiting",
           "tooltip": {
             "shared": true,
@@ -7028,8 +7029,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Threads Number and Limit",
           "tooltip": {
             "shared": true,
@@ -7147,8 +7148,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Context Switches / Interrupts",
           "tooltip": {
             "shared": true,
@@ -7258,8 +7259,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "System Load",
           "tooltip": {
             "shared": true,
@@ -7363,8 +7364,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Interrupts Detail",
           "tooltip": {
             "shared": true,
@@ -7458,8 +7459,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Schedule timeslices executed by each cpu",
           "tooltip": {
             "shared": true,
@@ -7552,8 +7553,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Entropy",
           "tooltip": {
             "shared": true,
@@ -7647,8 +7648,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "CPU time spent in user and system contexts",
           "tooltip": {
             "shared": true,
@@ -7754,8 +7755,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "File Descriptors",
           "tooltip": {
             "shared": true,
@@ -7914,8 +7915,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Hardware temperature monitor",
           "tooltip": {
             "shared": true,
@@ -8024,8 +8025,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Throttle cooling device",
           "tooltip": {
             "shared": true,
@@ -8119,8 +8120,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Power supply",
           "tooltip": {
             "shared": true,
@@ -8228,8 +8229,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Systemd Sockets",
           "tooltip": {
             "shared": true,
@@ -8379,8 +8380,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Systemd Units State",
           "tooltip": {
             "shared": true,
@@ -8583,8 +8584,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk IOps Completed",
           "tooltip": {
             "shared": false,
@@ -8773,8 +8774,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk R/W Data",
           "tooltip": {
             "shared": false,
@@ -8965,8 +8966,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk R/W Time",
           "tooltip": {
             "shared": false,
@@ -9144,8 +9145,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk IOs Weighted",
           "tooltip": {
             "shared": false,
@@ -9334,8 +9335,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk R/W Merged",
           "tooltip": {
             "shared": false,
@@ -9521,8 +9522,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Time Spent Doing I/Os",
           "tooltip": {
             "shared": false,
@@ -9700,8 +9701,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk IOs Current in Progress",
           "tooltip": {
             "shared": false,
@@ -9886,8 +9887,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Disk IOps Discards completed / merged",
           "tooltip": {
             "shared": false,
@@ -10019,8 +10020,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Filesystem space available",
           "tooltip": {
             "shared": true,
@@ -10116,8 +10117,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "File Nodes Free",
           "tooltip": {
             "shared": true,
@@ -10219,8 +10220,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "File Descriptor",
           "tooltip": {
             "shared": false,
@@ -10316,8 +10317,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "File Nodes Size",
           "tooltip": {
             "shared": true,
@@ -10426,8 +10427,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Filesystem in ReadOnly / Error",
           "tooltip": {
             "shared": true,
@@ -10557,8 +10558,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic by Packets",
           "tooltip": {
             "shared": true,
@@ -10669,8 +10670,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic Errors",
           "tooltip": {
             "shared": true,
@@ -10781,8 +10782,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic Drop",
           "tooltip": {
             "shared": true,
@@ -10893,8 +10894,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic Compressed",
           "tooltip": {
             "shared": true,
@@ -10997,8 +10998,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic Multicast",
           "tooltip": {
             "shared": true,
@@ -11109,8 +11110,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic Fifo",
           "tooltip": {
             "shared": true,
@@ -11214,8 +11215,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic Frame",
           "tooltip": {
             "shared": true,
@@ -11313,8 +11314,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic Carrier",
           "tooltip": {
             "shared": true,
@@ -11417,8 +11418,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Traffic Colls",
           "tooltip": {
             "shared": true,
@@ -11525,8 +11526,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "NF Contrack",
           "tooltip": {
             "shared": true,
@@ -11619,8 +11620,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "ARP Entries",
           "tooltip": {
             "shared": true,
@@ -11713,8 +11714,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "MTU",
           "tooltip": {
             "shared": true,
@@ -11808,8 +11809,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Speed",
           "tooltip": {
             "shared": true,
@@ -11903,8 +11904,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Queue Length",
           "tooltip": {
             "shared": true,
@@ -12018,8 +12019,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Softnet Packets",
           "tooltip": {
             "shared": true,
@@ -12118,8 +12119,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Softnet Out of Quota",
           "tooltip": {
             "shared": true,
@@ -12224,8 +12225,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Network Operational Status",
           "tooltip": {
             "shared": true,
@@ -12375,8 +12376,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Sockstat TCP",
           "tooltip": {
             "shared": true,
@@ -12491,8 +12492,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Sockstat UDP",
           "tooltip": {
             "shared": true,
@@ -12589,8 +12590,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Sockstat Used",
           "tooltip": {
             "shared": true,
@@ -12696,8 +12697,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Sockstat Memory Size",
           "tooltip": {
             "shared": true,
@@ -12812,8 +12813,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Sockstat FRAG / RAW",
           "tooltip": {
             "shared": true,
@@ -12943,8 +12944,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Netstat IP In / Out Octets",
           "tooltip": {
             "shared": true,
@@ -13044,8 +13045,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Netstat IP Forwarding",
           "tooltip": {
             "shared": true,
@@ -13159,8 +13160,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "ICMP In / Out",
           "tooltip": {
             "shared": true,
@@ -13265,8 +13266,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "ICMP Errors",
           "tooltip": {
             "shared": true,
@@ -13384,8 +13385,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "UDP In / Out",
           "tooltip": {
             "shared": true,
@@ -13517,8 +13518,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "UDP Errors",
           "tooltip": {
             "shared": true,
@@ -13637,8 +13638,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "TCP In / Out",
           "tooltip": {
             "shared": true,
@@ -13771,8 +13772,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "TCP Errors",
           "tooltip": {
             "shared": true,
@@ -13887,8 +13888,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "TCP Connections",
           "tooltip": {
             "shared": true,
@@ -14015,8 +14016,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "TCP SynCookie",
           "tooltip": {
             "shared": true,
@@ -14123,8 +14124,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "TCP Direct Transition",
           "tooltip": {
             "shared": true,
@@ -14237,8 +14238,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Node Exporter Scrape Time",
           "tooltip": {
             "shared": true,
@@ -14349,8 +14350,8 @@
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "interval": "3",
+          "timeShift": null,
           "title": "Node Exporter Scrape",
           "tooltip": {
             "shared": true,
